@@ -1,0 +1,79 @@
+@mixin flexbox( $align-items: start, $justify-content: start ) {
+    display:-webkit-box;
+    display:-moz-box;
+    display:-webkit-flexbox;
+    display:-moz-flexbox;
+    display:-ms-flexbox;
+    display:-webkit-flex;
+    display:-moz-flex;
+    display:flex;
+    
+    -webkit-box-direction:normal;
+    -moz-box-direction:normal;
+    box-direction:normal;
+    -webkit-box-orient:horizontal;
+    -moz-box-orient:horizontal;
+    box-orient:horizontal;
+    -ms-flex-direction:row;
+    -webkit-flex-direction:row;
+    -moz-flex-direction:row;
+    flex-direction:row;
+    
+    -moz-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+
+    // align-itemsプロパティ
+    @if $align-items == start {
+        -webkit-box-align:start;
+        -ms-flex-align:start;
+        align-items:flex-start;
+
+    } @else if $align-items == end {
+        -webkit-box-align:end;
+        -ms-flex-align:end;
+        align-items:flex-end;
+
+    } @else if $align-items == center {
+        -webkit-box-align:center;
+        -ms-flex-align:center;
+        align-items:center;
+
+    } @else if $align-items == baseline {
+        -webkit-box-align:baseline;
+        -ms-flex-align:baseline;
+        align-items:baseline;
+
+    } @else if $align-items == stretch {
+        -webkit-box-align:stretch;
+        -ms-flex-align:stretch;
+        align-items:stretch;
+    }
+
+    // justify-contentプロパティ
+    @if $justify-content == start {
+        -webkit-justify-content:flex-start;
+        -ms-justify-content:flex-start;
+        justify-content:flex-start;
+
+    } @else if $justify-content == end {
+        -webkit-justify-content:flex-end;
+        -ms-justify-content:flex-end;
+        justify-content:flex-end;
+
+    } @else if $justify-content == center {
+        -webkit-justify-content:center;
+        -ms-justify-content:center;
+        justify-content:center;
+
+    } @else if $justify-content == between {
+        -webkit-justify-content:space-between;
+        -ms-justify-content:space-between;
+        justify-content:space-between;
+
+    } @else if $justify-content == around {
+        -webkit-justify-content:space-around;
+        -ms-justify-content:space-around;
+        justify-content:space-around;
+    }
+}

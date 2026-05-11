@@ -1,0 +1,62 @@
+#item {
+	section {
+		h1 {
+			padding: 1rem 1.25rem;
+			font-size: 1.5rem;
+			font-weight: 700;
+			background: $colorBlue;
+			color: #fff;
+		}
+		&.list {
+			ul {
+				list-style: none;
+				@include flexbox;
+				gap: 1.55rem;
+				padding: 2rem 2rem 5rem 2rem;
+
+				li {
+					width: calc( 100% / 3 - 1.5rem );
+
+					@media #{$tb}{
+						width: calc( 100% / 2 - 1.5rem );
+					}
+					@media #{$sp}{
+						width: 100%;
+					}
+
+					img {
+						width: 100%;
+						height: 220px;
+						object-fit: cover;
+					}
+				}
+
+				p {
+					padding: .4rem .1rem;
+					font-weight: 500;
+					font-size:1.1rem;
+
+				}
+
+				a {
+					width: 70%;
+					display: block;
+					background: $colorRed;
+					text-decoration: none;
+					font-size: 1.2rem;
+					font-weight: 600;
+					color: #fff;
+					margin: 1rem auto;
+					padding: .75rem;
+					text-align: center;
+					border-radius: 4px;
+
+					&:hover {
+						background: lighten( $colorRed, 10% );
+						cursor: pointer;
+					}
+				}
+			}
+		}
+	}
+}

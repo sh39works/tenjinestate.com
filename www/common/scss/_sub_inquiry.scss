@@ -1,0 +1,204 @@
+#inquiry {
+	$borderColor: #888;
+	$itemPadding: .7rem;
+	$borderRadius: 3px;
+	$fontSize: .9rem;
+
+	section {
+		&.form {
+			padding-bottom: 3rem;
+		}
+
+		h1 {
+			padding: 1rem 1.25rem;
+			font-size: 1.5rem;
+			font-weight: 700;
+			background: $colorBlue;
+			color: #fff;
+		}
+
+		p {
+			&.lead {
+				width: 700px;
+				font-size: 1.1rem;
+				line-height: 1.7rem;
+				margin: 1.5rem auto 0 auto;
+
+				@media #{$tbsp}{
+					width: 90vw;
+				}
+			}
+		}
+
+		ul {
+			@include flexbox($align-items:center);
+			gap: .15rem;
+			width: 700px;
+			margin: 2rem auto 0 auto;
+			border: 1px solid #ddd;
+			border-radius: $borderRadius;
+			background: #fff;
+			list-style: none;
+			padding: 1rem;
+
+			@media #{$tbsp}{
+				width: 90vw;
+			}
+
+			li {
+				&.header {
+					width: 12rem;
+					font-weight: 700;
+//					background: lighten( $colorBlue, 15% );
+//					color: #fff;
+					padding: ( $itemPadding + 0.1 );
+					user-select: none;
+
+					@media #{$tbsp}{
+						width: 100%;
+						padding: ( $itemPadding + 0.1 ) ( $itemPadding + 0.1 ) 0 ( $itemPadding + 0.1 );
+					}
+
+					&.required {
+						span {
+							&::after {
+								content: "必須";
+								font-size: ($fontSize - .15rem);
+								padding: .2rem .4rem;
+								border-radius: $borderRadius;
+								background: red;
+								color: #fff;
+								font-weight: bold;
+								margin-left: .25rem;
+							}
+						}
+					}
+				}
+
+				&.content {
+					width: calc( 100% - 12rem - .25rem );
+					padding: $itemPadding;
+
+					@media #{$tbsp}{
+						width: 100%;
+						padding: ( $itemPadding - .1rem ) $itemPadding ( $itemPadding + .7rem ) $itemPadding;
+					}
+
+					input, select {
+						&:disabled {
+							background: #ccc;
+						}
+					}
+
+					input:not([type=radio]), select, textarea {
+						border: 1px solid $borderColor;
+						padding: $itemPadding;
+						width: 100%;
+						border-radius: $borderRadius;
+						font-size: $fontSize;
+
+						&.error {
+							border-color: red;
+						}
+					}
+
+					textarea {
+						field-sizing: content;
+						min-height: 6lh;
+						max-height: 20lh;
+						resize: none; 
+					}
+
+					input {
+						&[type=radio]{
+							display: none;
+
+							&+span {
+								border: 1px solid $borderColor;
+								user-select: none;
+								padding: $itemPadding;
+								border-radius: $borderRadius;
+								font-size: $fontSize;
+								display: inline-block;
+								margin-right: .4rem;
+								font-weight: 700;
+
+								&:hover {
+									cursor: pointer;
+								}
+							}
+						}
+					}
+
+					label {
+						&.sex input[type=radio]:checked {
+							&+span {
+								color: #fff;
+								&.sex1 {
+									background: blue;
+								}
+								&.sex2 {
+									background: red;
+								}
+							}
+						}
+						&.content input[type=radio]:checked {
+							&+span {
+								color: #fff;
+								background: red;
+							}
+						}
+					}
+				}
+
+				&.submit {
+					width: 100%;
+					input[type=button]{
+						width: 70%;
+						margin: .75rem auto;
+						padding: $itemPadding;
+						font-size: 1rem;
+						font-weight: bold;
+						text-align: center;
+						color: #fff;
+						border: 0;
+						border-radius: $borderRadius;
+						display: block;
+
+						@media #{$sp}{
+							width: 90%;
+						}
+
+						&.wait {
+							background: $colorBlue;
+
+							&:hover {
+								background: lighten( $colorBlue, 10% );
+								cursor: pointer;
+							}
+						}
+
+						&.send {
+							background: #777;
+
+							&:hover {
+								cursor: not-allowed;
+							}
+						}
+					}
+				}
+
+				&.complete {
+					width: 100%;
+					padding: 6rem 0;
+
+					p {
+						text-align: center;
+						font-weight: bold;
+						user-select: none;
+					}
+				}
+			}
+		}
+	}
+}

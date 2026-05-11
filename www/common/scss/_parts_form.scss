@@ -1,0 +1,189 @@
+input.d {
+    &[type=submit], &[type=button]{
+        background:$baseColor;
+        border:darken($baseColor,15%);
+        border-radius:30px;
+        width:70%;
+        padding:.7rem 0;
+        color:#fff;
+        font-size:1rem;
+        margin:1rem auto;
+        display:block;
+        &:hover {
+            background:lighten($baseColor,4%);
+            cursor:pointer;
+        }
+        &:active {
+            cursor:pointer;
+            box-shadow:3px 3px 1px darken($baseColor,15%) inset;
+        }
+        &:disabled {
+            background:#aaa;
+            &:hover {
+                cursor:not-allowed;
+            }
+        }
+        @media #{$sp}{
+            width:100%;
+        }
+    }
+    &[type=text],&[type=tel],&[type=number],&[type=email],&[type=date],&[type=password]{
+        border:1px solid #999;
+        padding:.35rem;
+        border-radius:2px;
+        font-size:1rem;
+        &:not(first-child){
+            margin-bottom:.5rem;
+        }
+        &:read-only {
+            background:#efefef;
+        }
+    }
+    label{
+        &:hover {
+            cursor:pointer;
+        }
+    }
+
+    &.w100 {
+        width:100%;
+    }
+    &.w70 {
+        width:68%;
+    }
+    &.w50 {
+        width:48%;
+    }
+    &.w30 {
+        width:28%;
+    }
+    &.w20 {
+        width:18%;
+    }
+    &.w10 {
+        width:8%;
+    }
+    &.postcode {
+        width:8rem;
+    }
+}
+select.d {
+    padding:.35rem;
+    border:1px solid #999;
+    border-radius:2px;
+    font-size:1rem;
+    margin-bottom:.5rem;
+    position:relative;
+}
+
+textarea.d {
+    width:100%;
+    height:7rem;
+    resize:vertical;
+}
+
+label {
+    &.password {
+        position:relative;
+        span {
+            position:absolute;
+            right:.85rem;
+            top:-.2rem;
+            font-size:1.2rem;
+            color:#333;
+            display:block;
+            &:after {
+                font-family:"FontAwesome";
+                content:"\f06e";
+            }
+            &:hover {
+                cursor:pointer;
+            }
+        }
+    }
+}
+
+
+$md-radio-checked-color: rgb(51, 122, 183);
+$md-radio-border-color: rgba(0, 0, 0, 0.54);
+$md-radio-size: 18px;
+$md-radio-checked-size: 12px; 
+$md-radio-ripple-size: 14px;
+
+@keyframes ripple {
+    0% {
+        box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.0);
+    }
+    50% { 
+        box-shadow: 0px 0px 0px $md-radio-ripple-size rgba(0, 0, 0, 0.1);
+    }
+    100% {
+        box-shadow: 0px 0px 0px $md-radio-ripple-size rgba(0, 0, 0, 0);
+    }
+}
+
+.md-radio {
+    padding:.6rem;
+    
+    &.md-radio-inline {
+        display: inline-block;
+    }
+
+    input[type="radio"],input[type="checkbox"] {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+        appearance: auto !important;
+        &:checked + label:before {
+            border-color: $md-radio-checked-color;
+            animation: ripple 0.2s linear forwards;   
+        }
+        &:checked + label:after {
+            transform: scale(1);
+        }
+        &:disabled {
+            &+label {
+                &:before {
+                    border-color: #bbb;
+                }
+                &:after {
+                    background:#bbb;
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+    
+    label {
+        display: inline-block;
+        min-height: $md-radio-size;
+        position: relative;
+        padding: 0 ($md-radio-size + 10px);
+        margin-bottom: 0;
+        cursor: pointer;
+        vertical-align: bottom;
+        &:before, &:after {
+            position: absolute;            
+            content: '';  
+            border-radius: 50%;
+            transition: all .3s ease;
+            transition-property: transform, border-color;
+        }
+        &:before {
+            left: 0;
+            top: 3px;
+            width: $md-radio-size;
+            height: $md-radio-size;
+            border: 1px solid $md-radio-border-color;
+            background:#fff;
+        }
+        &:after {
+            top: $md-radio-size / 2 - $md-radio-checked-size / 2 + 4;
+            left: $md-radio-size / 2 - $md-radio-checked-size / 2 + 1;
+            width:$md-radio-checked-size;
+            height:$md-radio-checked-size;
+            transform: scale(0);
+            background:$md-radio-checked-color;
+        }
+    }
+}

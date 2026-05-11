@@ -1,0 +1,119 @@
+@charset "utf-8";
+
+$backgroundColor:#ededed;
+$fontColor:#111;
+$baseColor:#5397d5;
+
+$colorBlue: #0f0985;
+$colorRed: #a81b1b;
+
+$sp:"screen and (max-width:430px)";
+$tb:"screen and (min-width:431px) and (max-width:1000px)";
+$tbsp:"screen and (max-width:1000px)";
+$pc:"print,screen and (min-width:1001px)";
+$print:"print";
+
+@import "compass" ;
+@import "reset" ;
+@import "parts_form" ;
+
+// mixin
+@import "mixin_flexbox" ;
+
+* {
+//    font-family: "Sawarabi Gothic", "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
+    font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+    -webkit-overflow-scrolling: touch;
+    box-sizing:border-box;
+}
+
+a {
+    color:darken( $fontColor, 30% ) ;
+    &.external {
+        &:after {
+            font-family:FontAwesome;
+            content:"\f08e";
+            margin-left:.3em;
+        }
+    }
+    &.button {
+        background:$baseColor;
+        border:darken($baseColor,15%);
+        border-radius:30px;
+        width:70%;
+        padding:.7rem 0;
+        color:#fff;
+        font-size:1rem;
+        margin:1rem auto;
+        display:block;
+        text-decoration:none;
+        text-align:center;
+        &:hover {
+            background:lighten($baseColor,4%);
+            cursor:pointer;
+        }
+        &:active {
+            cursor:pointer;
+            box-shadow:3px 3px 1px darken($baseColor,15%) inset;
+        }
+    }
+}
+
+article {
+	width: 1000px;
+    min-height:90vh;
+    margin: 0 auto;
+    background: white;
+
+	@media #{$tbsp}{
+		width: 100vw;
+	}
+}
+
+@media #{$print} {
+    body, html {
+        overflow-x:visible !important;
+    }
+}
+
+body, html {
+    background: #f6f6f6;
+    color:$fontColor;
+}
+
+input, button, textarea, select {
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    outline:0;
+    -webkit-user-select : auto;
+}
+@media #{$pc} {
+    .tb, .sp {
+        display:none;
+    }
+}
+@media #{$tb} {
+    .pc, .sp {
+        display:none;
+    }
+}
+@media #{$sp} {
+    .pc, .tb {
+        display:none;
+    }
+}
+.hidden {
+    display:none !important;
+}
+
+
+// コンポーネントの読み込みはここから
+@import "sub_top";
+@import "sub_item";
+@import "sub_privacy";
+@import "sub_inquiry";
+@import "header" ;
+@import "footer" ;
+// ここまで
+

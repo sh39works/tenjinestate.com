@@ -1,0 +1,15 @@
+# 認証情報
+program/mysql.setup.inc.php
+program/qdmail.setup.inc.php
+
+# ログ
+log/
+
+# SASS生成キャッシュ
+www/.sass-cache/
+
+# 物件画像（アップロードデータ）
+www/img/item/
+
+# PHP設定
+www/.user.ini
