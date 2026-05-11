@@ -113,12 +113,20 @@
 			}
 			*/
 
+			div.overlay {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+			}
+
 			p.text2 {
 				font-size: $baseSize;
 				font-weight: 800;
-				position: absolute;
-				top: 0;
-				margin: $baseSize 0 0 $baseSize;
+				padding: $baseSize 0 0 $baseSize;
+				margin: 0;
 
 				@media #{$tb}{
 					font-size: 4.5vw;

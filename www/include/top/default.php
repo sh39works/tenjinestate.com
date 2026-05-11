@@ -13,6 +13,7 @@
         <p class="text text-2"><span>私たちに</span></p>
         <p class="text text-3">お任せください</p>
         -->
+        <div class="overlay">
         <p class="text2"><span class="t1">福岡の不動産は</span><span class="t2">私たちに</span><span class="t3">お任せください</span></p>
 
         <div class="list">
@@ -46,6 +47,7 @@
                 <span>マンション・戸建て</span>
                 <span>土地</span>
             </p>
+        </div>
         </div>
 
         <p class="campaign" data-label="キャンペーン情報">
