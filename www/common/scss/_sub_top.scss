@@ -13,10 +13,6 @@
 			$baseSize: 3.3vw;
 
 			position: relative;
-			padding-bottom: 0;
-			margin-bottom: 5rem;
-			padding-bottom: 0;
-			margin-bottom: 5rem;
 			img {
 				width: 100%;
 				object-fit: cover;
@@ -117,21 +113,12 @@
 			}
 			*/
 
-			div.overlay {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				display: flex;
-				flex-direction: column;
-			}
-
 			p.text2 {
 				font-size: $baseSize;
 				font-weight: 800;
-				padding: $baseSize 0 0 $baseSize;
-				margin: 0;
+				position: absolute;
+				top: 0;
+				margin: $baseSize 0 0 $baseSize;
 
 				@media #{$tb}{
 					font-size: 4.5vw;
@@ -139,8 +126,7 @@
 
 				@media #{$sp}{
 					font-size: 7.5vw;
-					padding: 7.5vw 0 0 7.5vw;
-					margin: 0;
+					margin: 7.5vw 0 0 7.5vw;
 				}
 
 				span {
@@ -165,20 +151,20 @@
 			}
 
 			div.list {
-				margin-top: auto;
-				margin-bottom: 3rem;
+				position: absolute;
+				top: calc( #{$baseSize} * 6 + 7rem );
 				width: 100%;
 				@include flexbox($justify-content:center);
 				column-gap: 2rem;
 
 				@media #{$tb}{
-					margin-bottom: 2rem;
+					top: calc( #{$baseSize} * 12 + 7rem );
 				}
 
 				@media #{$sp}{
+					top: calc( #{$baseSize} * 4 / 2 + 19rem );
 					row-gap: 1rem;
 					column-gap: 0;
-					margin-bottom: 1.5rem;
 				}
 
 				p {
